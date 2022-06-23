@@ -1,6 +1,6 @@
 {
     "name": "pixelbin-core-final",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Pixelbin Core SDK helps you integrate Pixelbin with your Frontend JS Application.",
     "scripts": {
         "test": "jest"

@@ -16,6 +16,18 @@ import * as AWSRekognition from "./transformations/AWSRekognition";
 import * as GoogleVision from "./transformations/GoogleVision";
 
 /**
+ * @typedef {Object} transformations
+ * @property {Basic} Basic - Basic Transformations
+ * @property {RemoveBG} RemoveBG - Remove background from any image
+ * @property {EraseBG} EraseBG - Remove background from any image
+ * @property {SuperResolution} SuperResolution - Upscale image resolution
+ * @property {ArtifactRemoval} ArtifactRemoval - Remove JPEG compression artifact noise and get cleaner images
+ * @property {WatermarkRemoval} WatermarkRemoval - Produce watermark free images
+ * @property {AWSRekognition} AWSRekognition - Detect objects in images.
+ * @property {GoogleVision} GoogleVision - Detect objects in images.
+ */
+
+/**
  * class to create a Pixelbin object
  */
 class Pixelbin {
@@ -54,6 +66,10 @@ class Pixelbin {
         return upload(file, signedDetails);
     }
 
+    /**
+     * provides access to pixelbin transformations
+     * @returns {transformations}
+     */
     static transformations = {
         Basic,
         RemoveBG,
