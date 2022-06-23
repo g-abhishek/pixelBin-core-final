@@ -1,12 +1,17 @@
 {
-    // "include": ["./errors", "./utils", "./transformat"],
-    "exclude": ["./tests", "./.babelrc.js", "./jest.config.js", "./dist", "./webpack.config.js"],
+    "exclude": [
+        "./tests",
+        "./.babelrc.js",
+        "./jest.config.js",
+        "./dist",
+        "./webpack.config.js",
+        "./lib"
+    ],
     "compilerOptions": {
         "target": "es6",
         "module": "ES2020",
         "allowJs": true,
         "noEmit": false,
-        "sourceMap": true,
         "declaration": true,
         "rootDir": "./",
         "outDir": "./lib/esm",

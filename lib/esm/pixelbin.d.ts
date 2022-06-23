@@ -49,6 +49,16 @@ declare class Pixelbin {
     image(imageUri: string): Image;
 }
 import Transformation from "./transformation";
+export namespace transformations {
+    export { Basic };
+    export { RemoveBG };
+    export { EraseBG };
+    export { SuperResolution };
+    export { ArtifactRemoval };
+    export { WatermarkRemoval };
+    export { AWSRekognition };
+    export { GoogleVision };
+}
 import Image from "./image.js";
 import * as Basic from "./transformations/Basic";
 import * as RemoveBG from "./transformations/RemoveBG";

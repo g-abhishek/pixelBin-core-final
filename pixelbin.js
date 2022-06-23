@@ -68,4 +68,6 @@ class Pixelbin {
     static Transformation = Transformation;
 }
 
-export { Pixelbin as default, Transformation };
+const transformations = Pixelbin.transformations;
+
+export { Pixelbin as default, Transformation, transformations };

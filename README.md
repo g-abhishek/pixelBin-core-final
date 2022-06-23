@@ -25,6 +25,40 @@ const pixelbin = new Pixelbin({
 
 ---
 
+### Transform and Optimize Images
+
+```javascript
+// Import transformations
+import Pixelbin, { transformations } from "@pixelbin/core";
+
+const EraseBg = transformations.EraseBg;
+const Basic = transformations.Basic;
+
+// Create a new instance. If you have't (see above for the details)
+const pixelbin = new Pixelbin({
+    /*...*/
+});
+
+// Create EraseBg.bg transformation
+let t1 = EraseBg.bg();
+
+// Create resize transformation
+const t2 = Basic.resize({ height: 100, width: 100 });
+
+// create a new image
+const demoImage = pixelbin.image("path/to/image"); // File Path on Pixelbin
+
+// Add the transformations to the image
+demoImage.setTransformation(t1.pipe(t2));
+
+// Get the image url
+console.log(demoImage.getUrl());
+// output
+// https://cdn.pixelbin.io/v2/your-cloud-name/z-slug/erase.bg()~t.resize(h:100,w:100)/path/to/image
+```
+
+---
+
 ### Add Pixelbin to HTML
 
 Add the [this](./dist) distributable in a script tag along with axios
@@ -201,6 +235,34 @@ const obj = {
 const url = Pixelbin.utils.objToUrl(obj); // obj is as shown above
 // url
 // https://cdn.pixelbin.io/v2/your-cloud-name/z-slug/t.resize(h:100,w:200)~t.flip()/path/to/image.jpeg
+```
+
+## Transformation
+
+A transformation is an operation or a list of operations that can be performed on an image. Please refer [list of supported transformations](#list-of-supported-transformations) for details.
+
+```javascript
+// import a resize transformation
+import Pixelbin, { transformations } from "@pixelbin/core";
+
+const { resize } = transformations.Basic;
+
+// create the resize transformation
+const t = resize({ height: 100, width: 100 });
+```
+
+Multiple transformations can be chained by using `and` on the created transformation object
+
+```javascript
+// import a resize transformation
+import Pixelbin, { transformations } from "@pixelbin/core";
+
+const { resize, flip } = transformations.Basic;
+
+// create the basic transformations
+const t1 = resize({ height: 100, width: 100 });
+const t2 = flip();
+const t3 = t1.pipe(t2);
 ```
 
 ## Image
